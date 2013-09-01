@@ -1,0 +1,10 @@
+site :opscode
+
+cookbook 'build-essential'
+cookbook 'vim'
+cookbook 'apache2'
+cookbook 'mysql'
+
+cookbook 'base', github: 'm3y/chef-cookbook-base'
+cookbook 'dotdeb', github: 'm3y/chef-cookbook-dotdeb'
+cookbook 'php', github: 'm3y/chef-cookbook-php'

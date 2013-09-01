@@ -1,0 +1,2 @@
+chef-repo/cookbooks/*
+chef-repo/Berksfile.lock
