@@ -4,7 +4,7 @@ run_list(
     "recipe[apache2]",
     "recipe[apache2::mod_rewrite]",
     "recipe[apache2::mod_deflate]",
-    "recipe[apache2::mod_headers]",
+    "recipe[apache2::mod_headers]"
 )
 default_attributes(
     "apache" => {
