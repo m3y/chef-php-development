@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network :public_network
+  config.vm.network :public_network, :bridge => "en0: Wi-Fi (AirPort)"
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
@@ -82,16 +82,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
   #
-  # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "../my-recipes/cookbooks"
-  #   chef.roles_path = "../my-recipes/roles"
-  #   chef.data_bags_path = "../my-recipes/data_bags"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
-  # end
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["./chef-repo/cookbooks", "./chef-repo/site-cookbooks"]
+    chef.roles_path = "./chef-repo/roles"
+    chef.data_bags_path = "./chef-repo/data_bags"
+    chef.add_role "php-development"
+  
+    # You may also specify custom JSON attributes:
+    #chef.json = { :mysql_password => "foo" }
+  end
 
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
