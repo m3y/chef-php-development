@@ -8,5 +8,6 @@ run_list(
     "recipe[php::composer]",
     "role[database]",
     "role[webserver]",
-    "recipe[apache2::mod_php5]"
+    "recipe[apache2::mod_php5]",
+    "recipe[php::mysqlnd]"
 )
